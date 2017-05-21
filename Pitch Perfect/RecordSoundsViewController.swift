@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordSoundsViewController: UIViewController {
     //IBOutlets allow for you to communication with a UI element from code
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
@@ -20,9 +20,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         //disable the stopRecording button once the view loads
         stopRecordingButton.isEnabled = false
+        //Set buttons's image view content mode to aspect fit
+        recordButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        stopRecordingButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,16 +67,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
-    
-    // MARK: Audio Recorder Delegate
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
-        } else {
-            print("Failed to peform the segue. There was a problem with the recording.")
-        }
-        
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
@@ -89,16 +82,28 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // MARK: Configure UI
     func configureUI(isRecording: Bool) {
-        if isRecording {
-            recordingLabel.text = "Recording in progress..."
-            stopRecordingButton.isEnabled = true
-            recordButton.isEnabled = false
-        } else {
-            recordingLabel.text = "Tap to Record"
-            stopRecordingButton.isEnabled = false
-            recordButton.isEnabled = true
-        }
+        let settings = isRecording ? ("Recording in progress", true, false) : ("Tap to Record", false, true)
+        recordingLabel.text = settings.0
+        stopRecordingButton.isEnabled = settings.1
+        recordButton.isEnabled = settings.2
     }
     
+}
+
+// MARK: Audio Recorder Delegate extension
+extension RecordSoundsViewController : AVAudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        if flag {
+            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
+        } else {
+            //Create alert and alert action that user can perform
+            let alert = UIAlertController(title: "Segue Failure", message: "Failed to peform the segue! There was a problem with the recording!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            //Present the alert to the user
+            present(alert, animated: true, completion: nil)
+        }
+        
+    }
 }
 

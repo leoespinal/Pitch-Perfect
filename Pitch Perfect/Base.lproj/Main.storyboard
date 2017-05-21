@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NFx-hz-JFi">
-                                <rect key="frame" x="16" y="194" width="343" height="373"/>
+                                <rect key="frame" x="16" y="124" width="343" height="513"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="v3f-5P-fYV">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="171"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-cX-Oam">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="124.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="171"/>
                                                 <state key="normal" image="Record"/>
                                                 <connections>
                                                     <action selector="recordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gaE-S7-AoL"/>
@@ -38,10 +38,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dyd-nM-pEW">
-                                        <rect key="frame" x="0.0" y="124.5" width="343" height="124"/>
+                                        <rect key="frame" x="0.0" y="171" width="343" height="171"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqg-qm-vjb">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="124"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="171"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.015686274509803921" green="0.77254901960784317" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -49,10 +49,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IqE-Rp-RPN">
-                                        <rect key="frame" x="0.0" y="248.5" width="343" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="342" width="343" height="171"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv3-OX-duD">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="124.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="171"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="J8t-mj-f3z"/>
                                                     <constraint firstAttribute="width" constant="80" id="hP3-lF-ha4"/>
@@ -69,9 +69,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.81960784313725488" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NFx-hz-JFi" secondAttribute="bottom" constant="100" id="Aqu-S8-mdt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NFx-hz-JFi" secondAttribute="bottom" constant="30" id="Aqu-S8-mdt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NFx-hz-JFi" secondAttribute="trailing" id="L6R-OC-7oS"/>
-                            <constraint firstItem="NFx-hz-JFi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="PgB-76-vpF"/>
+                            <constraint firstItem="NFx-hz-JFi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="PgB-76-vpF"/>
                             <constraint firstItem="NFx-hz-JFi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="U2x-Jb-7ZC"/>
                         </constraints>
                     </view>
